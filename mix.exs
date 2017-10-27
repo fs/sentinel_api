@@ -56,7 +56,7 @@ defmodule SentinelApi.Mixfile do
       {:phoenix_html, "~> 2.6"},
       {:phoenix_pubsub, "~> 1.0"},
       {:postgrex, ">= 0.0.0"},
-      {:timex, "~> 3.0"},
+      {:timex, "~> 3.1.22"},
       {:credo, "~> 0.4", only: ~w(dev test)a},
       {:dialyxir, "~> 0.3", only: :dev},
       {:edeliver, ">= 1.2.9", only: :dev},
