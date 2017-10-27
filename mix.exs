@@ -48,7 +48,7 @@ defmodule SentinelApi.Mixfile do
       {:gettext, "~> 0.11"},
       {:guardian, "~> 0.13.0"},
       {:guardsafe, "~> 0.5.0"},
-      {:logger_file_backend, "~> 0.0.9"},
+      {:logger_file_backend, "~> 0.0.10"},
       {:monadex, "~> 1.0.2"},
       {:ok, "~> 1.0.0"},
       {:phoenix, "~> 1.2.1"},
