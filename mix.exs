@@ -22,7 +22,7 @@ defmodule SentinelApi.Mixfile do
       elixirc_paths: elixirc_paths(Mix.env),
       applications: ~w(phoenix phoenix_pubsub phoenix_html cowboy logger gettext
                        phoenix_ecto postgrex erlexec effects guardsafe monadex
-                       timex comeonin faker)a
+                       timex comeonin faker bamboo)a
     ]
   end
 
@@ -36,8 +36,8 @@ defmodule SentinelApi.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      # {:bamboo, "~> 0.7"},
-      # {:bamboo_smtp, "~> 1.2.1"},
+      {:bamboo, "~> 0.8"},
+      {:bamboo_smtp, "~> 1.4.0"},
       {:cowboy, "~> 1.0"},
       {:comeonin, "~> 2.5"},
       {:bodyguard, "~> 0.4.0"},
@@ -65,7 +65,7 @@ defmodule SentinelApi.Mixfile do
       {:ex_machina, "~> 1.0", only: ~w(dev test)a},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:hound, "~> 1.0", only: :test},
-      {:relx, "~>3.23.1"},
+      {:relx, "~> 3.23.1"},
       {:erlware_commons, "~> 1.0"}
     ]
   end
