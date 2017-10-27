@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+set -e
+
+WEBDRIVER=phantomjs MIX_ENV=test mix test
+./node_modules/.bin/karma start ./config/karma.js
+bin/quality

@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+HIST_DIR="~/.erlang-history/"
+
+set -e
+
+mix local.hex
+mix deps.get
+mix compile
+
+if [ ! -d "$HIST_DIR" ]; then
+  git clone https://github.com/ferd/erlang-history.git $HIST_DIR
+  cd $HIST_DIR
+  sudo make install
+  cd -
+fi
+
+mix ecto.create
+npm install yarn
+./node_modules/.bin/yarn install
+
+if [ "$CI" ]; then
+  change-phantomjs-version 2.1.1
+  MIX_ENV=test mix do deps.compile, compile
+  phantomjs --wd --webdriver-loglevel=ERROR &
+fi

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="csrf-token" content="<%= get_csrf_token() %>"/>
+
+    <title>Sentinel API</title>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+  </head>
+
+  <body>
+    <nav role="navigation" class="nav">
+      <div class="nav-left">
+        <%= link "Sentinel API", to: root_path(@conn, :index), class: "nav-item is-brand title" %>
+      </div>
+
+      <div class="nav-center">
+        <a class="nav-item is-active" href="/users">Users</a>
+      </div>
+
+      <div class="nav-right">
+        <%= if logged_in?(@conn) do %>
+          <%= link "Sign Out", to: session_path(@conn, :delete, current_user(@conn)),
+            "ujs-method": "delete", class: "nav-item" %>
+        <% else %>
+          <%= link "Sign In", to: session_path(@conn, :new), class: "nav-item" %>
+          <%= link "Sign Up", to: user_path(@conn, :new), class: "nav-item" %>
+        <% end %>
+      </div>
+    </nav>
+
+    <br>
+
+    <div class="container">
+      <%= if get_flash(@conn, :info) do %>
+        <div class="notification is-primary">
+          <button class="delete"></button>
+
+          <%= get_flash(@conn, :info) %>
+        </div>
+      <% end %>
+
+      <%= if get_flash(@conn, :error) do %>
+        <div class="notification is-danger">
+          <button class="delete"></button>
+
+          <%= get_flash(@conn, :error) %>
+        </div>
+      <% end %>
+
+      <main role="main">
+        <%= render @view_module, @view_template, assigns %>
+      </main>
+
+    </div> <!-- /container -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p class="paragraph">Sentinel API</p>
+          <p class="paragraph">2017 © Flatstack</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>
