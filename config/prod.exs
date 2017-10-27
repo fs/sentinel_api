@@ -59,11 +59,3 @@ config :logger, level: :info
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
 import_config "prod.secret.exs"
-
-config :sentinel_api, SentinelApi.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  database: "sentinel_api",
-  hostname: "localhost",
-  username: "postgres",
-  password: "postgres",
-  pool_size: 10
