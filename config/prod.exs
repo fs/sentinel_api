@@ -17,7 +17,7 @@ config :sentinel_api, SentinelApi.Endpoint,
   cache_static_manifest: "priv/static/manifest.json"
 
 # Do not print debug messages in production
-config :logger, level: :debug
+config :logger, level: :info
 
 # ## SSL Support
 #
