@@ -64,4 +64,5 @@ config :sentinel_api, SentinelApi.Repo,
   adapter: Ecto.Adapters.Postgres,
   database: "sentinel_api",
   hostname: "localhost",
+  username: "postgres",
   pool_size: 10
