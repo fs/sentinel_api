@@ -13,8 +13,8 @@ use Mix.Config
 # which you typically run after static files are built.
 config :sentinel_api, SentinelApi.Endpoint,
   http: [port: 8888],
-  url: [host: "sentinel.flts.tk", port: 80]
-  # cache_static_manifest: "priv/static/manifest.json"
+  url: [host: "sentinel.flts.tk", port: 80],
+  cache_static_manifest: "priv/static/manifest.json"
 
 # Do not print debug messages in production
 config :logger, level: :info
