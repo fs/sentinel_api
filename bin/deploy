@@ -14,5 +14,5 @@ echo "Deploying $BRANCH to $DEST"
 
 mix edeliver build release $DEST --branch=$BRANCH --verbose
 mix edeliver deploy release $DEST --verbose
-mix edeliver  migrate $DEST
+mix edeliver migrate $DEST
 mix edeliver restart $DEST --verbose
