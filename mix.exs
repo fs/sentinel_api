@@ -21,8 +21,8 @@ defmodule SentinelApi.Mixfile do
       mod: {SentinelApi, []},
       elixirc_paths: elixirc_paths(Mix.env),
       applications: ~w(phoenix phoenix_pubsub phoenix_html cowboy logger gettext
-                       phoenix_ecto postgrex erlexec effects guardsafe monadex
-                       timex comeonin faker bamboo)a
+                       phoenix_ecto postgrex erlexec effects guardian guardsafe
+                       monadex timex comeonin faker bamboo)a
     ]
   end
 
