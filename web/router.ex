@@ -32,4 +32,10 @@ defmodule SentinelApi.Router do
 
     get "/*path", PageController, :index
   end
+
+  scope "/api", SentinelApi do
+    pipe_through :api
+
+    resources "/unblocks", UnblocksController, only: [:create]
+  end
 end
