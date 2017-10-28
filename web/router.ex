@@ -14,8 +14,8 @@ defmodule SentinelApi.Router do
   end
 
   pipeline :browser_auth do
-    plug Guardian.Plug.VerifySession
-    plug Guardian.Plug.LoadResource
+    plug SentinelApi.Guardian.Plug.VerifySession
+    plug SentinelApi.Guardian.Plug.LoadResource
   end
 
   pipeline :api do

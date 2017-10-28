@@ -22,7 +22,7 @@ config :logger, :console,
        format: "$time $metadata[$level] $message\n",
        metadata: [:request_id]
 
-config :guardian, Guardian,
+config :guardian, SentinelApi.Guardian,
   allowed_algos: ["HS512"],
   issuer: "SentinelApi",
   ttl: { 3, :days },
