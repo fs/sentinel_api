@@ -13,9 +13,9 @@ defmodule SentinelApi.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :browser_auth do
-    plug SentinelApi.Guardian.Plug.VerifySession
-    plug SentinelApi.Guardian.Plug.LoadResource
+  pipeline :browser_session do
+    plug Guardian.Plug.VerifySession
+    plug Guardian.Plug.LoadResource
   end
 
   pipeline :api do
@@ -23,7 +23,7 @@ defmodule SentinelApi.Router do
   end
 
   scope "/", SentinelApi do
-    pipe_through ~w(browser browser_auth)a
+    pipe_through ~w(browser browser_session)a
 
     get "/", PageController, :index, as: :root
 
