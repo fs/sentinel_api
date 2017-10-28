@@ -26,8 +26,9 @@ config :guardian, Guardian,
   allowed_algos: ["HS512"],
   issuer: "SentinelApi",
   ttl: { 3, :days },
+  allowed_drift: 2000,
   verify_issuer: true,
-  secret_key: "yoursecretkey_yoursecretkey", #{SentinelApi.SecretKey, :fetch},
+  secret_key: {SentinelApi.SecretKey, :fetch},
   serializer: SentinelApi.GuardianSerializer
 
 config :sentinel_api, SentinelApi.Mailer,
