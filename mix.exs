@@ -66,7 +66,8 @@ defmodule SentinelApi.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:hound, "~> 1.0", only: :test},
       {:relx, "~> 3.23.1"},
-      {:erlware_commons, "~> 1.0"}
+      {:erlware_commons, "~> 1.0"},
+      {:arc, "~> 0.8.0"}
     ]
   end
 
