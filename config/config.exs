@@ -43,7 +43,7 @@ config :sentinel_api, SentinelApi.Mailer,
 
 config :arc,
   storage: Arc.Storage.Local,
-  :version_timeout, 30_000 # milliseconds
+  version_timeout: 30_000 # milliseconds
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

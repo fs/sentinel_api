@@ -36,6 +36,7 @@ defmodule SentinelApi.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:arc, "~> 0.8.0"},
       {:bamboo, "~> 0.8"},
       {:bamboo_smtp, "~> 1.4.0"},
       {:cowboy, "~> 1.0"},
@@ -43,6 +44,8 @@ defmodule SentinelApi.Mixfile do
       {:bodyguard, "~> 0.4.0"},
       {:effects, "~> 0.1.0"},
       {:erlexec, "~> 1.2.1"},
+      {:erlport, github: "hdima/erlport"},
+      {:erlware_commons, "~> 1.0"},
       {:exrm, "~> 1.0.5"},
       {:faker, "~> 0.7"},
       {:gettext, "~> 0.11"},
@@ -56,6 +59,8 @@ defmodule SentinelApi.Mixfile do
       {:phoenix_html, "~> 2.6"},
       {:phoenix_pubsub, "~> 1.0"},
       {:postgrex, ">= 0.0.0"},
+      {:relx, "~> 3.23.1"},
+      {:riffed, github: "pinterest/riffed"},
       {:timex, "~> 3.1.22"},
       {:credo, "~> 0.4", only: ~w(dev test)a},
       {:dialyxir, "~> 0.3", only: :dev},
@@ -64,10 +69,7 @@ defmodule SentinelApi.Mixfile do
       {:ex_doc, "~> 0.11", only: :dev},
       {:ex_machina, "~> 1.0", only: ~w(dev test)a},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:hound, "~> 1.0", only: :test},
-      {:relx, "~> 3.23.1"},
-      {:erlware_commons, "~> 1.0"},
-      {:arc, "~> 0.8.0"}
+      {:hound, "~> 1.0", only: :test}
     ]
   end
 
