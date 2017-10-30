@@ -16,6 +16,7 @@ defmodule SentinelApi.Image do
   # def validate({file, _}) do
   #   ~w(.jpg .jpeg .gif .png) |> Enum.member?(Path.extname(file.file_name))
   # end
+
   def validate({file, _}) do   
     file_extension = file.file_name |> Path.extname |> String.downcase
     Enum.member?(@extension_whitelist, file_extension)
@@ -30,14 +31,27 @@ defmodule SentinelApi.Image do
   # def filename(version, _) do
   #   version
   # end
+
   def filename(version, {file, scope}) do
     file_name = Path.basename(file.file_name, Path.extname(file.file_name))
-    "#{scope.id}_#{version}_#{file_name}"
+    "#{scope}_#{version}_#{file_name}"
+  end
+
+  def filename(version, {file, _}) do
+    "test"
   end
 
   # Override the storage directory:
+  # def storage_dir(version, {file, scope}) do
+  #   "uploads/user/avatars/#{scope.id}"
+  # end
+
   def storage_dir(version, {file, scope}) do
-    "uploads/user/avatars/#{scope.id}"
+    "uploads/users/#{scope}"
+  end
+
+  def storage_dir(version, {file, _}) do
+    "uploads/users"
   end
 
   # Provide a default URL if there hasn't been a file uploaded
