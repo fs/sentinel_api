@@ -3,7 +3,7 @@ defmodule SentinelApi.Mixfile do
 
   def project do
     [app: :sentinel_api,
-     version: "0.0.6",
+     version: "0.0.7",
      elixir: "~> 1.5",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -64,7 +64,7 @@ defmodule SentinelApi.Mixfile do
       {:timex, "~> 3.1.22"},
       {:credo, "~> 0.4", only: ~w(dev test)a},
       {:dialyxir, "~> 0.3", only: :dev},
-      {:edeliver, ">= 1.2.9", only: :dev},
+      {:edeliver, "~> 1.4.0", only: :dev},
       {:eper, "~> 0.94.0", only: :dev},
       {:ex_doc, "~> 0.11", only: :dev},
       {:ex_machina, "~> 1.0", only: ~w(dev test)a},
