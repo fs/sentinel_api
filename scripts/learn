@@ -1,8 +1,10 @@
-PROCESSES_NUM = $1
-OPENFACE_PATH = $2
-USER_DATA = $3
-ALIGNED_DATA = $4
-FEATURE_DIR = $USER_DATA/feature
+#!/usr/bin/env bash
+
+PROCESSES_NUM=$1
+OPENFACE_PATH=$2
+USER_DATA=$3
+ALIGNED_DATA=$4
+FEATURE_DIR=$USER_DATA/feature
 
 for N in {1..$PROCESSES_NUM};
 do $OPENFACE_PATH/util/align-dlib.py $USER_DATA align outerEyesAndNose $ALIGNED_DATA --size 96 &
