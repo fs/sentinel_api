@@ -6,7 +6,9 @@ defmodule SentinelApi.ImageClassification do
       {:ok, filename} ->
         IO.puts(filename)
         {:ok, filename}
-      {:error, reason} -> IO.puts(reason)
+      {:error, reason} ->
+        IO.puts(reason)
+        {:error, reason}
     end
   end
 end
