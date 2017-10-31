@@ -5,10 +5,10 @@ defmodule SentinelApi.UnblocksController do
 
   def create(conn, %{"unblock" => unblock_params}) do
     case ImageClassification.start(unblock_params) do
-      {:ok, task_num} ->
+      {:ok, filename} ->
         conn
         |> put_status(:created)
-        |> json %{data: %{task: task_num}}
+        |> json %{data: %{file: filename}}
       {:error, message} ->
         conn
         |> put_status(:unprocessable_entity)
