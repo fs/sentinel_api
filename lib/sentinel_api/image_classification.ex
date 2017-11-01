@@ -33,7 +33,7 @@ defmodule SentinelApi.ImageClassification do
   defp start_learning do
     System.cmd(
       "#{priv_dir}/learn",
-      [4, "~/openface", "#{common_dir}/uploads"],
+      ["4", "/home/deploy/openface", "#{common_dir}/uploads"],
       stderr_to_stdout: true
     )
   end
@@ -41,7 +41,7 @@ defmodule SentinelApi.ImageClassification do
   defp start_prediction do
     System.cmd(
       "#{priv_dir}/predict",
-      ["~/openface", "#{common_dir}/uploads"],
+      ["/home/deploy/openface", "#{common_dir}/uploads"],
       stderr_to_stdout: true
     )
   end
@@ -55,6 +55,6 @@ defmodule SentinelApi.ImageClassification do
   end
 
   defp common_dir do
-    "~/sentinel_api"
+    "/home/deploy/sentinel_api"
   end
 end
