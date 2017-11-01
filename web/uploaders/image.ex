@@ -32,13 +32,13 @@ defmodule SentinelApi.Image do
   #   version
   # end
 
+  def filename(version, {file, "test"}) do
+    "test"
+  end
+
   def filename(version, {file, scope}) do
     file_name = Path.basename(file.file_name, Path.extname(file.file_name))
     "#{scope}_#{version}_#{file_name}"
-  end
-
-  def filename(version, {file, _}) do
-    "test"
   end
 
   # Override the storage directory:
@@ -46,12 +46,12 @@ defmodule SentinelApi.Image do
   #   "uploads/user/avatars/#{scope.id}"
   # end
 
-  def storage_dir(version, {file, scope}) do
-    "uploads/users/#{scope}"
+  def storage_dir(version, {file, "test"}) do
+    "uploads/tests"
   end
 
-  def storage_dir(version, {file, _}) do
-    "uploads/users"
+  def storage_dir(version, {file, scope}) do
+    "uploads/users/#{scope}"
   end
 
   # Provide a default URL if there hasn't been a file uploaded
