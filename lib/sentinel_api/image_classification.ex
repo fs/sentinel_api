@@ -4,7 +4,7 @@ defmodule SentinelApi.ImageClassification do
   def start(%{"image" => image, "callback_uri" => callback_uri, "name" => name}) do
     case name do
       "_" ->
-        case Image.store({image}) do
+        case Image.store({image, "test"}) do
           {:ok, filename} ->
             IO.puts(filename)
 

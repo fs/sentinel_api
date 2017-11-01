@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 OPENFACE_PATH=$1
-UPLOADS_DATA=$2
+UPLOADS_PATH=$2
 FEATURE_DIR=$UPLOADS_PATH/feature
-TEST_DATA=$UPLOADS_DATA/tests
+TEST_DATA=$UPLOADS_PATH/tests
 
 $OPENFACE_PATH/demos/classifier.py infer $FEATURE_DIR/classifier.pkl $TEST_DATA/*.png
