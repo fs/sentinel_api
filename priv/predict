@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+OPENFACE_PATH=$1
+USER_DATA=$2
+TEST_DATA=$USER_DATA/../test
+
+$OPENFACE_PATH/demos/classifier.py infer $USER_DATA/ $TEST_DATA/*
