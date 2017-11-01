@@ -6,10 +6,10 @@ defmodule SentinelApi.ImageClassification do
       "_" ->
         case Image.store({image, "test"}) do
           {:ok, filename} ->
-            IO.puts(filename)
+            result = elem(start_prediction, 0)
+            IO.puts(result)
 
-            result = start_prediction
-            {:ok, result}
+            {:ok, response} = callback(callback_uri, result)
           {:error, reason} ->
             IO.puts(reason)
 
@@ -56,5 +56,15 @@ defmodule SentinelApi.ImageClassification do
 
   defp common_dir do
     "/home/deploy/sentinel_api"
+  end
+
+  defp callback(uri, result) do
+    HTTPoison.post(
+      uri,
+      {
+        :form,
+        [ {:data, result} ]
+      }
+    )
   end
 end
