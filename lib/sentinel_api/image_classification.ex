@@ -9,7 +9,8 @@ defmodule SentinelApi.ImageClassification do
             result = elem(start_prediction, 0)
             IO.puts(result)
 
-            {:ok, response} = callback(callback_uri, result)
+            callback(callback_uri, result)
+            {:ok, result}
           {:error, reason} ->
             IO.puts(reason)
 
