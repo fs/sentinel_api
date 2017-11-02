@@ -59,12 +59,13 @@ defmodule SentinelApi.ImageClassification do
   end
 
   defp callback(uri, result) do
-    HTTPoison.post(
-      uri,
-      {
-        :form,
-        [ {:data, result} ]
-      }
-    )
+    HTTPoison.get("#{uri}&data=#{result}")
+    # HTTPoison.post(
+    #   uri,
+    #   {
+    #     :form,
+    #     [ {:data, result} ]
+    #   }
+    # )
   end
 end
