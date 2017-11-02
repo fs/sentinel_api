@@ -10,7 +10,7 @@ defmodule SentinelApi.ImageClassification do
             IO.puts(result)
 
             callback(callback_uri, result)
-            {:ok, result}
+            {:ok, %{predict: result}}
           {:error, reason} ->
             IO.puts(reason)
 
@@ -22,7 +22,7 @@ defmodule SentinelApi.ImageClassification do
             IO.puts(filename)
 
             start_learning
-            {:ok, filename}
+            {:ok, %{file: filename}}
           {:error, reason} ->
             IO.puts(reason)
 
@@ -60,13 +60,13 @@ defmodule SentinelApi.ImageClassification do
   end
 
   defp callback(uri, result) do
-    HTTPoison.get("#{uri}&data=#{result}")
-    # HTTPoison.post(
-    #   uri,
-    #   {
-    #     :form,
-    #     [ {:data, result} ]
-    #   }
-    # )
+    # HTTPoison.get("#{uri}&data=#{result}")
+    HTTPoison.post(
+      uri,
+      {
+        :form,
+        [ {:data, result} ]
+      }
+    )
   end
 end
