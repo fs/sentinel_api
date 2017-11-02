@@ -3,7 +3,7 @@ defmodule SentinelApi.Mixfile do
 
   def project do
     [app: :sentinel_api,
-     version: "0.1.4",
+     version: "0.1.5",
      elixir: "~> 1.5",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -22,7 +22,7 @@ defmodule SentinelApi.Mixfile do
       elixirc_paths: elixirc_paths(Mix.env),
       applications: ~w(phoenix phoenix_pubsub phoenix_html cowboy logger gettext
                        phoenix_ecto postgrex erlexec effects guardian guardsafe
-                       monadex timex comeonin faker bamboo arc)a
+                       monadex timex comeonin faker bamboo arc httpoison)a
     ]
   end
 
@@ -51,6 +51,7 @@ defmodule SentinelApi.Mixfile do
       {:gettext, "~> 0.11"},
       {:guardian, "~> 0.14.5"},
       {:guardsafe, "~> 0.5.0"},
+      {:httpoison, "~> 0.13.0"},
       {:logger_file_backend, "~> 0.0.10"},
       {:monadex, "~> 1.0.2"},
       {:ok, "~> 1.0.0"},
