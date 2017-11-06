@@ -1,5 +1,6 @@
 defmodule SentinelApi.ImageClassification do
   alias SentinelApi.Image
+  alias SentinelApi.Prediction
 
   def start(%{"image" => image, "callback_uri" => callback_uri, "name" => name}) do
     case name do
@@ -29,44 +30,5 @@ defmodule SentinelApi.ImageClassification do
             {:error, reason}
         end
     end
-  end
-
-  defp start_learning do
-    System.cmd(
-      "#{priv_dir}/learn",
-      ["4", "/home/deploy/openface", "#{common_dir}/uploads"],
-      stderr_to_stdout: true
-    )
-  end
-
-  defp start_prediction do
-    System.cmd(
-      "#{priv_dir}/predict",
-      ["/home/deploy/openface", "#{common_dir}/uploads"],
-      stderr_to_stdout: true
-    )
-  end
-
-  defp app_dir do
-    Application.app_dir(:sentinel_api)
-  end
-
-  defp priv_dir do
-    Application.app_dir(:sentinel_api, "priv")
-  end
-
-  defp common_dir do
-    "/home/deploy/sentinel_api"
-  end
-
-  defp callback(uri, result) do
-    # HTTPoison.get("#{uri}&data=#{result}")
-    HTTPoison.post(
-      uri,
-      {
-        :form,
-        [ {:data, result} ]
-      }
-    )
   end
 end
